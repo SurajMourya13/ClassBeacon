@@ -1,0 +1,228 @@
+/* --- PROFILE PAGE SPECIFIC STYLES --- */
+.profile-container {
+    display: flex;
+    gap: 2rem;
+    align-items: flex-start;
+}
+
+/* Left Sidebar for Profile Info */
+.profile-sidebar {
+    flex: 0 0 280px; /* Do not grow, do not shrink, base width 280px */
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: var(--border-color);
+    margin: 0 auto 1rem auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: var(--primary-color);
+    border: 4px solid #fff;
+    box-shadow: var(--shadow);
+    overflow: hidden; 
+    position: relative;
+    /* FIX: Ensure if we display the fallback icon, it's centered, 
+       otherwise the container only holds the image. */
+}
+
+/* Style the fallback icon/text within the avatar */
+.profile-avatar i {
+    text-indent: 0; 
+}
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    /* When an image is present, the fallback text/icon is effectively replaced/hidden by the image filling the space. */
+}
+
+/* NEW: Style for the "Change Picture" button */
+.profile-sidebar .edit-pic-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px auto 0 auto; 
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.profile-sidebar .edit-pic-btn:hover {
+    background-color: #5a5cc2;
+}
+
+
+/* Right side main content */
+.profile-main {
+    flex-grow: 1;
+}
+
+.profile-card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow);
+    margin-bottom: 2rem;
+}
+
+.profile-card-header {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 1rem;
+}
+
+.profile-details-list .detail-item {
+    display: flex;
+    align-items: center;
+    color: var(--text-dark);
+    font-size: 0.95rem;
+}
+
+.profile-details-list .detail-item:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.profile-details-list .detail-item i {
+    color: var(--text-light);
+    margin-right: 1rem;
+    width: 20px;
+    text-align: center;
+}
+
+/* Courses List */
+.course-list .course-item {
+    padding: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    transition: border-color 0.2s, color 0.2s;
+}
+
+.course-list .course-item:not(:last-child) {
+    margin-bottom: 1rem;
+}
+
+.course-list .course-item:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.profile-name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+}
+
+.profile-role {
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .profile-container {
+        flex-direction: column;
+    }
+    .profile-sidebar {
+        flex-basis: auto;
+        width: 100%;
+    }
+}
+/* --- POP-UP MODAL FIX CSS --- */
+/* --- POP-UP MODAL STYLES (REQUIRED FOR DISPLAY/HIDE) --- */
+
+/* The main modal container (overlay) */
+#updateProfilePicturePopup {
+    display: none; /* 🔑 KEY FIX: Hides the modal by default */
+    position: fixed; /* Fixes it to the viewport */
+    z-index: 1000; /* Ensures it sits above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.6); /* Dim background */
+    
+
+}
+
+/* The actual white content box */
+#updateProfilePicturePopup .popup-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    width: 90%;
+    max-width: 400px; /* Adjust as needed */
+    position: relative; 
+}
+
+/* Form element styling */
+#updateProfilePicturePopup input[type="file"] {
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 1rem;
+}
+
+#updateProfilePicturePopup button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    margin-top: 1rem;
+}
+#updateProfilePicturePopup button:hover {
+    background-color: #5a5cc2;
+}
+
+/* Close button positioning */
+#updateProfilePicturePopup .close-button {
+    color: #aaa;
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+#updateProfilePicturePopup .close-button:hover {
+    color: #333;
+}
+/* --- NEW: Style for the "Remove Picture" button --- */
+.profile-sidebar .delete-pic-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin: 10px auto 0 auto; 
+    background-color: var(--danger-color, #dc3545); /* Uses danger color */
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.profile-sidebar .delete-pic-btn:hover {
+    background-color: #c82333; /* Darker red on hover */
+}

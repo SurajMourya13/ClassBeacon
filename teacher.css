@@ -1,0 +1,105 @@
+/* --- BASE AND LAYOUT STYLES --- */
+:root {
+    --primary-color: #6a6cce;
+    --light-primary-color: #f1f1ff;
+    --text-dark: #333;
+    --text-light: #777;
+    --bg-color: #f8f9fa;
+    --sidebar-bg: #ffffff;
+    --card-bg: #ffffff;
+    --border-color: #e9ecef;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    --success-color: #28a745;
+    --danger-color: #dc3545;
+    --info-color: #17a2b8;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: "Poppins", sans-serif; background-color: var(--bg-color); color: var(--text-dark); line-height: 1.6; display: flex; }
+a { text-decoration: none; color: inherit; }
+ul { list-style-type: none; }
+.container { display: flex; width: 100%; min-height: 100vh; }
+
+/* Sidebar Navigation */
+.sidebar { width: 260px; background-color: var(--sidebar-bg); border-right: 1px solid var(--border-color); display: flex; flex-direction: column; padding: 1.5rem; transition: transform 0.3s ease-in-out; }
+.sidebar-logo { display: flex; align-items: center; margin-bottom: 2.5rem; }
+.sidebar-logo i { font-size: 1.8rem; color: var(--primary-color); margin-right: 0.75rem; }
+.sidebar-logo h1 { font-size: 1.5rem; font-weight: 600; }
+.sidebar-nav ul li { margin-bottom: 0.5rem; }
+.sidebar-nav a { display: flex; align-items: center; padding: 0.8rem 1rem; border-radius: 8px; color: var(--text-light); font-weight: 500; transition: background-color 0.2s, color 0.2s; }
+.sidebar-nav a i { font-size: 1.1rem; margin-right: 1rem; width: 20px; text-align: center; }
+.sidebar-nav a:hover { background-color: var(--light-primary-color); color: var(--primary-color); }
+.sidebar-nav a.active { background-color: var(--primary-color); color: #fff; }
+
+/* Main Content */
+.main-content { flex-grow: 1; display: flex; flex-direction: column; }
+.header { display: flex; justify-content: flex-end; align-items: center; padding: 1.25rem 2.5rem; background-color: #fff; border-bottom: 1px solid var(--border-color); }
+.menu-toggle { display: none; font-size: 1.5rem; cursor: pointer; margin-right: auto; }
+.user-info { display: flex; align-items: center; }
+.user-details { text-align: right; margin-right: 1rem; }
+.user-details .user-role { font-size: 0.8rem; color: var(--text-light); }
+.user-details .user-name { font-weight: 600; }
+.logout-btn { display: flex; align-items: center; background: none; border: none; color: var(--text-light); font-size: 1rem; cursor: pointer; padding: 0.5rem; border-radius: 6px; transition: background-color 0.2s, color 0.2s; }
+.logout-btn:hover { color: var(--primary-color); background-color: var(--light-primary-color); }
+.logout-btn i { margin-left: 0.5rem; }
+
+/* Content Body & List Styles */
+.content-body { padding: 2.5rem; flex-grow: 1; }
+.section-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 2rem; }
+.section-header h2 { font-size: 2rem; font-weight: 600; }
+.add-button { background-color: var(--primary-color); color: white; border: none; padding: 10px 20px; border-radius: 8px; font-size: 1rem; cursor: pointer; display: flex; align-items: center; gap: 8px; transition: background-color 0.2s; }
+.add-button:hover { background-color: #5a5cc2; }
+.card-list-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+.info-card { background-color: var(--card-bg); border-radius: 12px; padding: 1.5rem; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+.info-header { display: flex; justify-content: flex-end; margin-bottom: 1rem; }
+.info-id { background-color: var(--light-primary-color); color: var(--primary-color); padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.info-content { flex-grow: 1; }
+.info-name { font-size: 1.5rem; font-weight: 600; margin-bottom: 10px; }
+.info-detail { font-size: 0.9rem; color: var(--text-light); margin-bottom: 5px; }
+.info-icon { width: 20px; text-align: center; color: var(--primary-color); }
+
+/* Edit & Delete Button Styles (Refined) */
+.info-actions { margin-top: 1.5rem; display: flex; justify-content: flex-end; align-items: center; gap: 10px; }
+.edit-button, .delete-button {
+    background: none;
+    border: 1px solid var(--border-color);
+    color: var(--text-dark);
+    padding: 8px 12px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+}
+.edit-button:hover {
+    background-color: var(--light-primary-color);
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+.delete-button { color: var(--danger-color); border-color: transparent; }
+.delete-button:hover {
+    background-color: var(--danger-color);
+    color: #fff;
+    border-color: var(--danger-color);
+}
+
+/* Status Badge Styles */
+.status-badge { color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 600; }
+.status-badge.active { background-color: var(--success-color); }
+.status-badge.inactive { background-color: var(--danger-color); }
+
+/* --- Modal (Pop-up) Styles --- */
+.modal { display: none; position: fixed; z-index: 1000; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.6); padding-top: 60px; }
+.modal-content { background-color: #fff; margin: 5% auto; padding: 2rem; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); width: 90%; max-width: 500px; position: relative; }
+.close-button { color: #aaa; position: absolute; top: 10px; right: 20px; font-size: 28px; font-weight: bold; cursor: pointer; transition: color 0.2s; }
+.close-button:hover, .close-button:focus { color: #333; }
+.modal-content h3 { font-size: 1.5rem; font-weight: 600; margin-bottom: 1.5rem; color: var(--text-dark); }
+.add-form .form-group { margin-bottom: 1rem; }
+.add-form label { display: block; font-size: 0.9rem; color: var(--text-light); margin-bottom: 5px; }
+.add-form input, .add-form select { width: 100%; padding: 10px; border: 1px solid var(--border-color); border-radius: 6px; font-size: 1rem; box-sizing: border-box; }
+.submit-button { width: 100%; background-color: var(--primary-color); color: #fff; padding: 12px; border: none; border-radius: 8px; font-size: 1rem; cursor: pointer; transition: background-color 0.2s; margin-top: 1rem; }
+.submit-button:hover { background-color: #5a5cc2; }
+
+/* Responsive */
+@media (max-width: 992px) {
+    .section-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+}

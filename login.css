@@ -1,0 +1,181 @@
+/* --- Login Page Styles --- */
+.login-container {
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.login-card {
+  background-color: var(--card-bg);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  padding: 40px;
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  box-sizing: border-box;
+}
+.login-card .logo {
+  font-size: 1.8rem;
+  color: #6a6cce;
+  margin-right: 0.75rem;
+  font-size: 2.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.login-card .logo img {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #8a2be2, #4b0082);
+  display: block;
+  margin: 0 auto;
+}
+.login-card h1 {
+  font-size: 1.8rem;
+  color: var(--text-dark);
+  margin-bottom: 5px;
+  font-weight: 600;
+}
+.login-card .subtitle {
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 30px;
+}
+.login-form {
+  text-align: left;
+}
+.login-form .form-group {
+  margin-bottom: 20px;
+}
+.login-form .form-group label {
+  display: block;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+.login-form .form-group input,
+.login-form .form-group select {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.3s ease;
+}
+.login-form .form-group input:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+.sign-in-button {
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(45deg, #8a2be2, #6a5acd);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+.sign-in-button:hover {
+  background: linear-gradient(45deg, #6a5acd, #8a2be2);
+  transform: translateY(-2px);
+}
+.demo-accounts {
+  margin-top: 30px;
+  font-size: 0.85rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+.demo-accounts p {
+  margin: 0;
+}
+.account-info {
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+/* --- Modal (Pop-up) Styles --- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding-top: 60px;
+}
+.modal-content {
+  background-color: #fff;
+  margin: 5% auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+}
+.close-button {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+.close-button:hover,
+.close-button:focus {
+  color: #333;
+}
+.modal-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-dark);
+}
+.add-form .form-group {
+  margin-bottom: 1rem;
+}
+.add-form label {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--text-light);
+  margin-bottom: 5px;
+}
+.add-form input,
+.add-form select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+.submit-button {
+  width: 100%;
+  background-color: var(--primary-color);
+  color: #fff;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 1rem;
+}
+.submit-button:hover {
+  background-color: #5a5cc2;
+}
